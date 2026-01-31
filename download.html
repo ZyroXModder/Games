@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZyroX Mods - Secure Link</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+        body { background: #050505; color: white; text-align: center; overflow-x: hidden; padding-bottom: 50px; }
+
+        /* TOP AD ZONE */
+        .top-ad-zone { width: 100%; min-height: 60px; background: #000; border-bottom: 1px solid #111; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; color: #333; font-size: 10px; }
+        
+        .brand-header { margin: 20px 0; animation: fadeInDown 0.8s ease; }
+        .brand-header h1 { font-size: 32px; font-weight: 900; color: #007bff; letter-spacing: 3px; }
+        .brand-header span { font-size: 10px; color: #555; text-transform: uppercase; letter-spacing: 5px; }
+
+        .container { max-width: 450px; margin: auto; padding: 0 20px; }
+
+        /* MAIN CARD */
+        .card { 
+            background: linear-gradient(145deg, #111, #0a0a0a); 
+            border-radius: 30px; padding: 40px 25px; 
+            border: 1px solid rgba(255,255,255,0.03);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            animation: cardPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        /* ADS BOX */
+        .ad-container { 
+            background: rgba(0, 123, 255, 0.03); border: 2px dashed #1a1a1a; 
+            border-radius: 20px; padding: 25px; margin: 20px 0 10px; cursor: pointer;
+            transition: 0.4s; position: relative;
+        }
+        .ad-container:hover { border-color: #007bff; background: rgba(0, 123, 255, 0.07); }
+        .ad-info { font-size: 12px; color: #444; margin-top: 10px; }
+
+        /* INTERNAL AD SLOTS */
+        .extra-ad-slot { margin: 10px 0 20px; padding: 15px; background: rgba(255,255,255,0.02); border-radius: 12px; font-size: 10px; color: #333; border: 1px solid #0f0f0f; }
+
+        /* UI ELEMENTS */
+        .status-badge { background: rgba(0,123,255,0.1); color: #007bff; padding: 5px 15px; border-radius: 50px; font-size: 11px; font-weight: 700; margin-bottom: 15px; display: inline-block; }
+        .timer-val { font-size: 40px; font-weight: 900; margin: 10px 0; color: #fff; }
+
+        .btn { display: block; width: 100%; padding: 20px; border-radius: 18px; font-weight: 800; border: none; font-size: 16px; text-decoration: none; cursor: pointer; transition: 0.3s; }
+        .btn-locked { background: #1a1a1a; color: #444; pointer-events: none; }
+        .btn-ready { background: #007bff; color: white; display: none; box-shadow: 0 10px 30px rgba(0,123,255,0.4); animation: pulse 2s infinite; }
+
+        /* FOOTER */
+        .footer-text { margin-top: 40px; padding: 20px; color: #333; font-size: 11px; border-top: 1px solid #111; }
+
+        /* ANIMATIONS */
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes cardPop { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0,123,255,0.7); } 70% { box-shadow: 0 0 0 20px rgba(0,123,255,0); } 100% { box-shadow: 0 0 0 0 rgba(0,123,255,0); } }
+    </style>
+</head>
+<body onclick="openPop()">
+
+    <div class="top-ad-zone">[ TOP BANNER AD CODE ]</div>
+
+    <div class="brand-header">
+        <h1>ZYROX<span>MODS</span></h1>
+        <p style="color: #666; font-size: 10px; letter-spacing: 1px;">SECURE FILE GATEWAY</p>
+    </div>
+
+    <div class="container">
+        
+        <div class="card" id="box1">
+            <div class="status-badge">STEP 1/2: INTERACTION CHECK</div>
+            
+            <div class="ad-container" onclick="runTimer1()">
+                <i class="fa-solid fa-shield-halved" style="font-size: 30px; color: #007bff; margin-bottom: 10px;"></i>
+                <p style="font-weight: 700;">[ NATIVE AD 1 HERE ]</p>
+                <div class="ad-info">CLICK TO START VERIFICATION</div>
+            </div>
+
+            <div class="extra-ad-slot">[ BANNER AD BELOW CLICK ]</div>
+
+            <div id="timer1" style="display:none;">
+                <div class="timer-val" id="count1">15</div>
+                <p style="font-size: 11px; color: #444;">SECURELY CONNECTING...</p>
+            </div>
+            <button class="btn btn-locked" id="l1">LOCKED</button>
+        </div>
+
+        <div class="card" id="box2" style="display:none;">
+            <div class="status-badge" style="background: rgba(255,51,102,0.1); color: #ff3366;">STEP 2/2: FINAL UNLOCK</div>
+
+            <div class="ad-container" onclick="runTimer2()" style="border-color: #ff3366;">
+                <i class="fa-solid fa-lock-open" style="font-size: 30px; color: #ff3366; margin-bottom: 10px;"></i>
+                <p style="font-weight: 700;">[ NATIVE AD 2 HERE ]</p>
+                <div class="ad-info">CLICK TO REVEAL DOWNLOAD</div>
+            </div>
+
+            <div class="extra-ad-slot">[ BANNER AD BELOW CLICK ]</div>
+
+            <div id="timer2" style="display:none;">
+                <div class="timer-val" id="count2" style="color: #ff3366;">3</div>
+                <p style="font-size: 11px; color: #444;">GENERATING LINK...</p>
+            </div>
+            <a href="#" class="btn btn-ready" id="dl-btn">DOWNLOAD NOW <i class="fa-solid fa-arrow-down-long"></i></a>
+        </div>
+
+        <div class="footer-text">
+            <p>ZyroX Mods - Safe & Secure Mods</p>
+            <p style="margin-top:5px; opacity:0.5;">&copy; 2026 ZyroX Team</p>
+        </div>
+
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const fileUrl = urlParams.get('url');
+        let popDone = false;
+
+        function openPop() {
+            if(!popDone) {
+                window.open('https://t.me/ZyroXMods', '_blank'); // Your Direct Link Here
+                popDone = true;
+            }
+        }
+
+        function runTimer1() {
+            window.open('https://t.me/ZyroXMods', '_blank'); 
+            document.getElementById('timer1').style.display = "block";
+            let c1 = 15;
+            const int1 = setInterval(() => {
+                c1--;
+                document.getElementById('count1').innerText = c1;
+                if(c1 <= 0) {
+                    clearInterval(int1);
+                    document.getElementById('box1').style.display = "none";
+                    document.getElementById('box2').style.display = "block";
+                }
+            }, 1000);
+        }
+
+        function runTimer2() {
+            window.open('https://t.me/ZyroXMods', '_blank'); 
+            document.getElementById('timer2').style.display = "block";
+            let c2 = 3;
+            const int2 = setInterval(() => {
+                c2--;
+                document.getElementById('count2').innerText = c2;
+                if(c2 <= 0) {
+                    clearInterval(int2);
+                    document.getElementById('timer2').style.display = "none";
+                    const b = document.getElementById('dl-btn');
+                    b.style.display = "block";
+                    b.href = fileUrl;
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
